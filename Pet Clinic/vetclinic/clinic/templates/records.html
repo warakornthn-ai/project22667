@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="card shadow">
+    <div class="card-body">
+
+        <h3 class="mb-3">🩺 ประวัติการรักษา</h3>
+
+        <table class="table table-striped table-hover">
+            <thead class="table-dark">
+                <tr>
+                    <th>Pet</th>
+                    <th>Diagnosis</th>
+                    <th>Treatment</th>
+                    <th>Date</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                {% for r in records %}
+                <tr>
+                    <td>{{ r.pet.name }}</td>
+                    <td>{{ r.diagnosis }}</td>
+                    <td>{{ r.treatment }}</td>
+                    <td>{{ r.visit_date }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+    </div>
+</div>
+
+{% endblock %}

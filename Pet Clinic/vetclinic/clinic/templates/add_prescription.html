@@ -1,0 +1,17 @@
+<h2>จ่ายยาให้ {{ record.record_id }}</h2>
+
+<form method="post">
+    {% csrf_token %}
+
+    <label>ยา</label>
+    <select name="medicine">
+        {% for m in meds %}
+            <option value="{{ m.id }}">{{ m.name }}</option>
+        {% endfor %}
+    </select>
+
+    <label>วิธีใช้</label>
+    <input type="text" name="dosage">
+
+    <button type="submit">บันทึก</button>
+</form>

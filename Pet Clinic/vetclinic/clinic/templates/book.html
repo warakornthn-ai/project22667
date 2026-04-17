@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="card shadow">
+    <div class="card-body">
+
+        <h3 class="mb-3">📅 จองคิวรักษา</h3>
+
+        <!-- 🔥 แสดง error ถ้ามี -->
+        {% if form.errors %}
+            <div class="alert alert-danger">
+                ❌ กรุณากรอกข้อมูลให้ครบ
+            </div>
+        {% endif %}
+
+        <form method="post">
+            {% csrf_token %}
+
+            <div class="mb-3">
+                <label class="form-label">Pet</label>
+                {{ form.pet }}
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Vet</label>
+                {{ form.vet }}
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Appointment date</label>
+                {{ form.appointment_date }}
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Status</label>
+                {{ form.status }}
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Note</label>
+                {{ form.note }}
+            </div>
+
+            <!-- 🔥 ปุ่ม -->
+            <button type="submit" class="btn btn-success w-100">
+                💾 บันทึก
+            </button>
+
+        </form>
+
+        <a href="/appointments/" class="btn btn-secondary w-100 mt-2">
+            ⬅ กลับหน้ารายการนัด
+        </a>
+
+    </div>
+</div>
+
+{% endblock %}

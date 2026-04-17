@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h1 class="mb-4">🐾 คลินิคสัตว์เลี้ยง</h1>
+
+<div class="mb-3">
+    <a href="/book/" class="btn btn-primary">📅 จองคิว</a>
+    <a href="/dashboard/" class="btn btn-dark">👨‍⚕️ Dashboard</a>
+</div>
+
+<div class="card shadow mb-4">
+    <div class="card-body">
+
+        <h4>🔍 ค้นหา</h4>
+
+        <form method="get">
+            <div class="d-flex gap-2">
+                <input type="text" 
+                       name="q"
+                       class="form-control"
+                       placeholder="🔍 ค้นหา..."
+                       value="{{ query|default:'' }}">
+
+                <button class="btn btn-success">ค้นหา</button>
+            </div>
+        </form>
+
+    </div>
+</div>
+
+{% if query %}
+
+    {% if records %}
+        <table class="table table-bordered">
+            <tr>
+                <th>Owner</th>
+                <th>Pet</th>
+                <th>Diagnosis</th>
+                <th>Date</th>
+            </tr>
+
+            {% for r in records %}
+            <tr>
+                <td>{{ r.pet.owner.name }}</td>
+                <td>{{ r.pet.name }}</td>
+                <td>{{ r.diagnosis }}</td>
+                <td>{{ r.visit_date }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+
+    {% else %}
+        <div class="alert alert-danger mt-3">
+            ❌ ไม่พบข้อมูล
+        </div>
+    {% endif %}
+
+{% endif %}
+
+{% endblock %}

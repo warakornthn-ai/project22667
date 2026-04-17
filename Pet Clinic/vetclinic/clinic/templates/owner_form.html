@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>เพิ่มเจ้าของ</title>
+</head>
+<body>
+
+<h2>เพิ่มเจ้าของสัตว์</h2>
+
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">บันทึก</button>
+</form>
+
+</body>
+</html>
