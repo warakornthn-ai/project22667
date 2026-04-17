@@ -43,7 +43,7 @@ pip install django
 
 ### 2. เข้าไปในโฟลเดอร์โปรเจค
 
-cd Project-ICT22667-Petclinic
+cd vetclinic
 
 ### 3. รันเซิร์ฟเวอร์
 
